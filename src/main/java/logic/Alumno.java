@@ -52,4 +52,17 @@ public class Alumno {
         
      return nombreModulos;
     }
+    public double getNumberHours(){
+    double horasAcumuladas=0;
+    
+        for (Modulo h : modulos) {
+            horasAcumuladas += (double)h.getHoras();
+        }
+    return horasAcumuladas;
+    }
+    
+    
+    
+    
+    
 }
