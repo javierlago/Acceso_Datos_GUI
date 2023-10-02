@@ -28,7 +28,7 @@ public class AddModulo extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        panaAnadirModulo = new javax.swing.JPanel();
+        panAnadirModulo = new javax.swing.JPanel();
         inputName = new javax.swing.JTextField();
         inputHours = new javax.swing.JTextField();
         inputUnits = new javax.swing.JTextField();
@@ -43,7 +43,7 @@ public class AddModulo extends javax.swing.JDialog {
 
         jPanel1.setName("PanelAñadirModulo"); // NOI18N
 
-        panaAnadirModulo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Añadir Modulo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 255))); // NOI18N
+        panAnadirModulo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Añadir Modulo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 255))); // NOI18N
 
         inputName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,36 +57,36 @@ public class AddModulo extends javax.swing.JDialog {
 
         txtUnits.setText("Unidadades:");
 
-        javax.swing.GroupLayout panaAnadirModuloLayout = new javax.swing.GroupLayout(panaAnadirModulo);
-        panaAnadirModulo.setLayout(panaAnadirModuloLayout);
-        panaAnadirModuloLayout.setHorizontalGroup(
-            panaAnadirModuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panaAnadirModuloLayout.createSequentialGroup()
+        javax.swing.GroupLayout panAnadirModuloLayout = new javax.swing.GroupLayout(panAnadirModulo);
+        panAnadirModulo.setLayout(panAnadirModuloLayout);
+        panAnadirModuloLayout.setHorizontalGroup(
+            panAnadirModuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panAnadirModuloLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panaAnadirModuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panAnadirModuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtName)
                     .addComponent(txtHours)
                     .addComponent(txtUnits))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(panaAnadirModuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(panAnadirModuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(inputName)
                     .addComponent(inputHours)
                     .addComponent(inputUnits, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        panaAnadirModuloLayout.setVerticalGroup(
-            panaAnadirModuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panaAnadirModuloLayout.createSequentialGroup()
+        panAnadirModuloLayout.setVerticalGroup(
+            panAnadirModuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panAnadirModuloLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panaAnadirModuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panAnadirModuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panaAnadirModuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panAnadirModuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtHours))
                 .addGap(18, 18, 18)
-                .addGroup(panaAnadirModuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panAnadirModuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtUnits))
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -114,7 +114,7 @@ public class AddModulo extends javax.swing.JDialog {
                             .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(panaAnadirModulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(panAnadirModulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
@@ -123,7 +123,7 @@ public class AddModulo extends javax.swing.JDialog {
                 .addContainerGap(51, Short.MAX_VALUE)
                 .addComponent(titleAltaModulos)
                 .addGap(18, 18, 18)
-                .addComponent(panaAnadirModulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panAnadirModulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
@@ -139,9 +139,7 @@ public class AddModulo extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -162,7 +160,7 @@ public class AddModulo extends javax.swing.JDialog {
     private javax.swing.JTextField inputName;
     private javax.swing.JTextField inputUnits;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel panaAnadirModulo;
+    private javax.swing.JPanel panAnadirModulo;
     private javax.swing.JLabel titleAltaModulos;
     private javax.swing.JLabel txtHours;
     private javax.swing.JLabel txtName;
