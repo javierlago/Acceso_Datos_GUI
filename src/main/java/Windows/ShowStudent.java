@@ -111,6 +111,7 @@ public class ShowStudent extends javax.swing.JDialog {
 
         txtModulosData.setText("Módulos");
 
+        listModulos.setEnabled(false);
         pnlModulos.setViewportView(listModulos);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -165,13 +166,14 @@ public class ShowStudent extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtShowNamePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtShowNamePropertyChange
         
     }//GEN-LAST:event_txtShowNamePropertyChange
 
-    /**
+   
 
      
 

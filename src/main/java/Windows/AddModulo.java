@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package Windows;
-
+import logic.Modulo;
 /**
  *
  * @author Reibax
@@ -97,6 +97,11 @@ public class AddModulo extends javax.swing.JDialog {
 
         btnSave.setText("Grabar");
         btnSave.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         btnClean.setText("Limpiar");
         btnClean.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -143,11 +148,16 @@ public class AddModulo extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void inputNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNameActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+       
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments

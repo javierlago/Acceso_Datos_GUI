@@ -4,8 +4,11 @@
  */
 package Windows;
 
-import java.awt.GridBagConstraints;
-import javax.swing.JPanel;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+
+
 
 /**
  *
@@ -19,7 +22,11 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         
+
+        
     }
+    // Icono del JFrame
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,6 +56,7 @@ public class MainWindow extends javax.swing.JFrame {
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(0, 0));
 
         btnAnadirAlumno.setText("Añadir Alumno");
         btnAnadirAlumno.setAlignmentY(0.0F);
@@ -68,6 +76,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btnVerAlumno.setText("Ver Alumno");
+        btnVerAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerAlumnoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -140,12 +153,19 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnadirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirAlumnoActionPerformed
-        // TODO add your handling code here:
+       AddStudents addalumno = new AddStudents(this, true);
+     addalumno.setVisible(true);
     }//GEN-LAST:event_btnAnadirAlumnoActionPerformed
 
     private void btnAnadirModuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirModuloActionPerformed
-        // TODO add your handling code here:
+        AddModulo addmodulo = new AddModulo(this, true);
+        addmodulo.setVisible(true);
     }//GEN-LAST:event_btnAnadirModuloActionPerformed
+
+    private void btnVerAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlumnoActionPerformed
+       ShowStudent showstudent = new ShowStudent(this,true);
+       showstudent.setVisible(true);
+    }//GEN-LAST:event_btnVerAlumnoActionPerformed
 
     /**
      * @param args the command line arguments
