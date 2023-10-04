@@ -24,7 +24,7 @@ public class Main {
         
         MainWindow mw = new MainWindow(mp.getListaModulos(),mp.getListaAlumnos());
         mw.setVisible(true);
-        
+        System.out.println(mp.getListaAlumnos().toString());
         
     }
     

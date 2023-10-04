@@ -24,7 +24,7 @@ public class Alumno {
         return modulosStudent;
     }
     
-    ArrayList<Modulo> modulosStudent = new ArrayList();
+    ArrayList<Modulo> modulosStudent;
 
     public String getNombre() {
         return nombre;

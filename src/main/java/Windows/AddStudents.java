@@ -6,6 +6,7 @@ package Windows;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import logic.*;
 
 /**
@@ -35,7 +36,7 @@ public class AddStudents extends javax.swing.JDialog {
     ArrayList<Modulo> modulos= new ArrayList();
     ArrayList<Alumno> alumno= new ArrayList();
     DefaultListModel<String> listModel = new DefaultListModel<>();
-    
+    ImageIcon img = new ImageIcon("src/main/java/img/lg.png");
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,14 +57,17 @@ public class AddStudents extends javax.swing.JDialog {
         dspModulos = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         listadoModulos = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
+        btnSaveStudent = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(img.getImage());
         setMaximumSize(new java.awt.Dimension(395, 440));
         setMinimumSize(new java.awt.Dimension(395, 440));
         setPreferredSize(new java.awt.Dimension(395, 333));
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(400, 400));
 
         jLabel1.setText("ALTA ALUMNOS");
 
@@ -123,10 +127,10 @@ public class AddStudents extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(listadoModulos);
 
-        jButton1.setText("Grabar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSaveStudent.setText("Grabar");
+        btnSaveStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSaveStudentActionPerformed(evt);
             }
         });
 
@@ -155,13 +159,13 @@ public class AddStudents extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnSaveStudent)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,7 +184,7 @@ public class AddStudents extends javax.swing.JDialog {
                     .addComponent(jButton3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addComponent(btnSaveStudent)
                     .addComponent(jButton2))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
@@ -189,11 +193,11 @@ public class AddStudents extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
         );
 
         pack();
@@ -210,21 +214,22 @@ public class AddStudents extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNameStudentActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSaveStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveStudentActionPerformed
        listadoModulos.setModel(listModel);
-        ArrayList<Modulo> modulosStudent = new ArrayList();
+        ArrayList<Modulo> modulosStudent = new ArrayList<>();
         for (int i = 0; i<listModel.size();i++){ 
             for (Modulo modulo : modulos) {
+                 
                 if(listModel.get(i).compareToIgnoreCase(modulo.getNombre())==0){
                 modulosStudent.add(modulo);
                 }
             }
         }
         
-        Alumno a = new Alumno(inputNameStudent.getText(),inputLocalidad.getText(),modulosStudent);
-        alumno.add(a);
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+        alumno.add(new Alumno(inputNameStudent.getText(),inputLocalidad.getText(),modulosStudent));
+        System.out.println(alumno.toString());
+       this.dispose();
+    }//GEN-LAST:event_btnSaveStudentActionPerformed
 
     private void dspModulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dspModulosActionPerformed
 
@@ -248,10 +253,10 @@ public class AddStudents extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSaveStudent;
     private javax.swing.JComboBox<String> dspModulos;
     private javax.swing.JTextField inputLocalidad;
     private javax.swing.JTextField inputNameStudent;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;

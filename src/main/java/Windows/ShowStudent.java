@@ -4,9 +4,11 @@
  */
 package Windows;
 
+import java.awt.Image;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import logic.Alumno;
 import logic.Modulo;
 
@@ -25,8 +27,10 @@ public class ShowStudent extends javax.swing.JDialog {
         this.alumnos=alumnos;
         listModel.removeAllElements();
     }
+    ImageIcon img = new ImageIcon("src/main/java/img/lg.png");
     ArrayList<Alumno> alumnos = new ArrayList<>();  
     DefaultListModel<String> listModel = new DefaultListModel<>();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,7 +57,13 @@ public class ShowStudent extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Academia Mas");
+        setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 14)); // NOI18N
+        setIconImage(img.getImage());
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtNameToFind.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 12)); // NOI18N
         txtNameToFind.setText("Nombre a buscar:");
 
         btnShowStudent.setText("Mostrar");
@@ -63,7 +73,7 @@ public class ShowStudent extends javax.swing.JDialog {
             }
         });
 
-        pnlShowStudent.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 204))); // NOI18N
+        pnlShowStudent.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Hack Nerd Font Mono", 1, 12), new java.awt.Color(0, 0, 204))); // NOI18N
 
         txtNameData.setText("Nombre:");
 
@@ -71,16 +81,38 @@ public class ShowStudent extends javax.swing.JDialog {
 
         txtHourData.setText("Horas:");
 
+        txtShowName.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 14)); // NOI18N
+        txtShowName.setForeground(new java.awt.Color(0, 0, 0));
         txtShowName.setToolTipText("");
+        txtShowName.setCaretColor(new java.awt.Color(0, 0, 0));
+        txtShowName.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtShowName.setEnabled(false);
+        txtShowName.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        txtShowName.setSelectionColor(new java.awt.Color(0, 0, 0));
+        txtShowName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtShowNameActionPerformed(evt);
+            }
+        });
         txtShowName.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 txtShowNamePropertyChange(evt);
             }
         });
 
+        txtShowLocalidad.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 14)); // NOI18N
+        txtShowLocalidad.setForeground(new java.awt.Color(0, 0, 0));
+        txtShowLocalidad.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtShowLocalidad.setEnabled(false);
+        txtShowLocalidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtShowLocalidadActionPerformed(evt);
+            }
+        });
 
+        txtShowHours.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 14)); // NOI18N
+        txtShowHours.setForeground(new java.awt.Color(0, 0, 0));
+        txtShowHours.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtShowHours.setEnabled(false);
 
         javax.swing.GroupLayout pnlShowStudentLayout = new javax.swing.GroupLayout(pnlShowStudent);
@@ -122,9 +154,16 @@ public class ShowStudent extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        txtModulosData.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 12)); // NOI18N
+        txtModulosData.setForeground(new java.awt.Color(0, 0, 0));
         txtModulosData.setText("Módulos");
 
+        listModulos.setBackground(new java.awt.Color(255, 255, 255));
+        listModulos.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 18)); // NOI18N
+        listModulos.setForeground(new java.awt.Color(0, 0, 0));
         listModulos.setEnabled(false);
+        listModulos.setSelectionBackground(new java.awt.Color(0, 0, 0));
+        listModulos.setSelectionForeground(new java.awt.Color(0, 0, 0));
         pnlModulos.setViewportView(listModulos);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -167,7 +206,7 @@ public class ShowStudent extends javax.swing.JDialog {
                         .addComponent(pnlShowStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(pnlModulos, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -192,7 +231,9 @@ public class ShowStudent extends javax.swing.JDialog {
     private void btnShowStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowStudentActionPerformed
         listModel.removeAllElements();
         for (Alumno alumno : alumnos) {
-            if(txtStudentName.getText().compareToIgnoreCase(alumno.getNombre())==0);{
+            
+            if(txtStudentName.getText().equalsIgnoreCase(alumno.getNombre())){
+            System.out.println(alumno.toString());
             txtShowName.setText(alumno.getNombre());
             txtShowLocalidad.setText(alumno.getLocalidad());
             txtShowHours.setText(String.valueOf((int) alumno.getNumberHours()));
@@ -201,9 +242,18 @@ public class ShowStudent extends javax.swing.JDialog {
                 listModel.addElement(modulo.getNombre());
             }
             }
-            
+          break;  
         }
+        
     }//GEN-LAST:event_btnShowStudentActionPerformed
+
+    private void txtShowNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShowNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtShowNameActionPerformed
+
+    private void txtShowLocalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShowLocalidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtShowLocalidadActionPerformed
 
    
 

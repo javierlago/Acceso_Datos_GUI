@@ -4,6 +4,7 @@
  */
 package Windows;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import logic.Modulo;
 /**
  *
@@ -25,6 +26,7 @@ public class AddModulo extends javax.swing.JDialog {
         
     }
     ArrayList<Modulo> modulos = new ArrayList();
+    ImageIcon img = new ImageIcon("src/main/java/img/Book.png");
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,6 +49,7 @@ public class AddModulo extends javax.swing.JDialog {
         btnClean = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(img.getImage());
 
         jPanel1.setName("PanelAñadirModulo"); // NOI18N
 

@@ -5,6 +5,7 @@
 package Windows;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import logic.Alumno;
 import logic.Modulo;
 
@@ -31,8 +32,9 @@ public class MainWindow extends javax.swing.JFrame {
         this.alumno=alumno;
         
     }
-    ArrayList<Modulo> modulos= new ArrayList();
-    ArrayList<Alumno> alumno= new ArrayList();
+    ArrayList<Modulo> modulos = new ArrayList();
+    ArrayList<Alumno> alumno = new ArrayList();
+    ImageIcon img = new ImageIcon("src/main/java/img/Book.png");
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,8 +63,11 @@ public class MainWindow extends javax.swing.JFrame {
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(img.getImage());
         setLocation(new java.awt.Point(0, 0));
 
+        btnAnadirAlumno.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 14)); // NOI18N
+        btnAnadirAlumno.setForeground(new java.awt.Color(0, 0, 0));
         btnAnadirAlumno.setText("Añadir Alumno");
         btnAnadirAlumno.setAlignmentY(0.0F);
         btnAnadirAlumno.setMargin(new java.awt.Insets(5, 5, 5, 5));
@@ -73,6 +78,8 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        btnAnadirModulo.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 14)); // NOI18N
+        btnAnadirModulo.setForeground(new java.awt.Color(0, 0, 0));
         btnAnadirModulo.setText("Añadir Módulo");
         btnAnadirModulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +87,8 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        btnVerAlumno.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 14)); // NOI18N
+        btnVerAlumno.setForeground(new java.awt.Color(0, 0, 0));
         btnVerAlumno.setText("Ver Alumno");
         btnVerAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +106,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(btnAnadirAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAnadirModulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnVerAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +117,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(btnAnadirModulo)
                 .addGap(18, 18, 18)
                 .addComponent(btnVerAlumno)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         btnBarAlnumno.setText("Alumnos");
@@ -158,7 +167,7 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnadirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirAlumnoActionPerformed
-     AddStudents addalumno = new AddStudents(this, true,modulos,alumno);
+     AddStudents addalumno = new AddStudents(this, true,this.modulos,this.alumno);
      addalumno.setVisible(true);
     }//GEN-LAST:event_btnAnadirAlumnoActionPerformed
 
@@ -168,7 +177,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAnadirModuloActionPerformed
 
     private void btnVerAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlumnoActionPerformed
-       ShowStudent showstudent = new ShowStudent(this,true,alumno);
+       ShowStudent showstudent = new ShowStudent(this,true,this.alumno);
        showstudent.setVisible(true);
     }//GEN-LAST:event_btnVerAlumnoActionPerformed
 
