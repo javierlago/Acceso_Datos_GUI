@@ -4,6 +4,12 @@
  */
 package Windows;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import logic.Alumno;
+import logic.Modulo;
+
 /**
  *
  * @author Reibax
@@ -13,12 +19,14 @@ public class ShowStudent extends javax.swing.JDialog {
     /**
      * Creates new form ShowStudent
      */
-    public ShowStudent(java.awt.Frame parent, boolean modal) {
+    public ShowStudent(java.awt.Frame parent, boolean modal,ArrayList<Alumno> alumnos) {
         super(parent, modal);
         initComponents();
-       
+        this.alumnos=alumnos;
+        listModel.removeAllElements();
     }
-
+    ArrayList<Alumno> alumnos = new ArrayList<>();  
+    DefaultListModel<String> listModel = new DefaultListModel<>();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,6 +57,11 @@ public class ShowStudent extends javax.swing.JDialog {
         txtNameToFind.setText("Nombre a buscar:");
 
         btnShowStudent.setText("Mostrar");
+        btnShowStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowStudentActionPerformed(evt);
+            }
+        });
 
         pnlShowStudent.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 204))); // NOI18N
 
@@ -76,20 +89,20 @@ public class ShowStudent extends javax.swing.JDialog {
             pnlShowStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlShowStudentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlShowStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlShowStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlShowStudentLayout.createSequentialGroup()
                         .addComponent(txtNameData)
                         .addGap(18, 18, 18)
                         .addComponent(txtShowName, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlShowStudentLayout.createSequentialGroup()
-                        .addComponent(txtHourData)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtShowHours, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlShowStudentLayout.createSequentialGroup()
-                        .addComponent(txtLocallidadData)
-                        .addGap(14, 14, 14)
-                        .addComponent(txtShowLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(pnlShowStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtLocallidadData)
+                            .addComponent(txtHourData))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlShowStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtShowHours, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                            .addComponent(txtShowLocalidad))))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         pnlShowStudentLayout.setVerticalGroup(
             pnlShowStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,7 +110,7 @@ public class ShowStudent extends javax.swing.JDialog {
                 .addGap(11, 11, 11)
                 .addGroup(pnlShowStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNameData)
-                    .addComponent(txtShowName, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtShowName, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(pnlShowStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtShowLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -120,38 +133,41 @@ public class ShowStudent extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(txtModulosData)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtModulosData)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlModulos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addComponent(pnlShowStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlModulos, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtNameToFind)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnShowStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtNameToFind)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pnlShowStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                        .addComponent(btnShowStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNameToFind, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnShowStudent))
-                .addGap(29, 29, 29)
-                .addComponent(pnlShowStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
+                        .addGap(237, 237, 237)
                         .addComponent(txtModulosData))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNameToFind, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnShowStudent))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pnlShowStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(pnlModulos, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -168,10 +184,26 @@ public class ShowStudent extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void txtShowNamePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtShowNamePropertyChange
         
     }//GEN-LAST:event_txtShowNamePropertyChange
+
+    private void btnShowStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowStudentActionPerformed
+        listModel.removeAllElements();
+        for (Alumno alumno : alumnos) {
+            if(txtStudentName.getText().compareToIgnoreCase(alumno.getNombre())==0);{
+            txtShowName.setText(alumno.getNombre());
+            txtShowLocalidad.setText(alumno.getLocalidad());
+            txtShowHours.setText(String.valueOf((int) alumno.getNumberHours()));
+            listModulos.setModel(listModel);
+            for (Modulo modulo : alumno.getModulosStudent()) {
+                listModel.addElement(modulo.getNombre());
+            }
+            }
+            
+        }
+    }//GEN-LAST:event_btnShowStudentActionPerformed
 
    
 

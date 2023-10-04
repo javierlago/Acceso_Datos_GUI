@@ -4,6 +4,10 @@
  */
 package Windows;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import logic.*;
+
 /**
  *
  * @author Reibax
@@ -12,12 +16,26 @@ public class AddStudents extends javax.swing.JDialog {
 
     /**
      * Creates new form AddStudents
+     * @param parent
+     * @param modal
+     * @param modulos
+     * @param alumno
      */
-    public AddStudents(java.awt.Frame parent, boolean modal) {
+    public AddStudents(java.awt.Frame parent, boolean modal,ArrayList<Modulo> modulos,ArrayList<Alumno> alumno) {
         super(parent, modal);
         initComponents();
+        this.modulos=modulos;
+        this.alumno=alumno;
+        for (Modulo modulo: modulos) {
+          dspModulos.addItem(modulo.getNombre());     
+        }
+        
+      
     }
-
+    ArrayList<Modulo> modulos= new ArrayList();
+    ArrayList<Alumno> alumno= new ArrayList();
+    DefaultListModel<String> listModel = new DefaultListModel<>();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,9 +53,9 @@ public class AddStudents extends javax.swing.JDialog {
         txtName = new javax.swing.JLabel();
         txtLocalidad = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        dspModulos = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listadoModulos = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -92,7 +110,18 @@ public class AddStudents extends javax.swing.JDialog {
 
         jLabel2.setText("Módulos");
 
-        jScrollPane1.setViewportView(jList1);
+        dspModulos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dspModulosActionPerformed(evt);
+            }
+        });
+
+        listadoModulos.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                listadoModulosComponentAdded(evt);
+            }
+        });
+        jScrollPane1.setViewportView(listadoModulos);
 
         jButton1.setText("Grabar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +133,11 @@ public class AddStudents extends javax.swing.JDialog {
         jButton2.setText("Limpiar");
 
         jButton3.setText("Quitar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -117,7 +151,7 @@ public class AddStudents extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(dspModulos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -139,7 +173,7 @@ public class AddStudents extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dspModulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,33 +200,71 @@ public class AddStudents extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private void anadirElemento(){
+    listadoModulos.add(dspModulos.getComponent(WIDTH));
+    
+    }
+    
     private void inputNameStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNameStudentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNameStudentActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       listadoModulos.setModel(listModel);
+        ArrayList<Modulo> modulosStudent = new ArrayList();
+        for (int i = 0; i<listModel.size();i++){ 
+            for (Modulo modulo : modulos) {
+                if(listModel.get(i).compareToIgnoreCase(modulo.getNombre())==0){
+                modulosStudent.add(modulo);
+                }
+            }
+        }
+        
+        Alumno a = new Alumno(inputNameStudent.getText(),inputLocalidad.getText(),modulosStudent);
+        alumno.add(a);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
+    private void dspModulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dspModulosActionPerformed
+
+        listadoModulos.setModel(listModel);
+        String selectedText = (String) dspModulos.getSelectedItem();
+        listModel.addElement(selectedText);
+    }//GEN-LAST:event_dspModulosActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    int selectedItem = listadoModulos.getSelectedIndex();
+     listModel.remove(selectedItem);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void listadoModulosComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_listadoModulosComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listadoModulosComponentAdded
+  
+       /**
      * @param args the command line arguments
      */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> dspModulos;
     private javax.swing.JTextField inputLocalidad;
     private javax.swing.JTextField inputNameStudent;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    javax.swing.JList<String> listadoModulos;
     private javax.swing.JPanel panAddStudent;
     private javax.swing.JLabel txtLocalidad;
     private javax.swing.JLabel txtName;
     // End of variables declaration//GEN-END:variables
+
+    
+
+
 }

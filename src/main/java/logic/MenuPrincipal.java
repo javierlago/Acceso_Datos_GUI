@@ -11,10 +11,15 @@ import java.util.ArrayList;
  * @author Reibax
  */
 public class MenuPrincipal {
+
+    public MenuPrincipal() {
+        
+        
+    }
     
     
-    ArrayList<Alumno> listaAlumnos;
-    ArrayList<Modulo> listaModulos;
+    ArrayList<Alumno> listaAlumnos = new ArrayList();
+    ArrayList<Modulo> listaModulos = new ArrayList();
 
     public ArrayList<Alumno> getListaAlumnos() {
         return listaAlumnos;
@@ -23,7 +28,12 @@ public class MenuPrincipal {
     public ArrayList<Modulo> getListaModulos() {
         return listaModulos;
     }
-    
+
+   public void addModulo(Modulo modulo){
+       listaModulos.add(modulo);
+    }
+   
+ 
     
     
 }

@@ -10,7 +10,7 @@ package logic;
  */
 public class Modulo {
     String nombre;
-    int horas,unidades;
+    int horas=0,unidades=0;
 
     public Modulo(String nombre, int horas, int unidades) {
         this.nombre = nombre;
@@ -40,6 +40,11 @@ public class Modulo {
 
     public void setUnidades(int unidades) {
         this.unidades = unidades;
+    }
+
+    @Override
+    public String toString() {
+        return "Modulo{" + "nombre=" + nombre + ", horas=" + horas + ", unidades=" + unidades + '}';
     }
     
     

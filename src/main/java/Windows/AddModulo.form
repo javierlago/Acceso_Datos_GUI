@@ -132,9 +132,6 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="inputName">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputNameActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="inputHours">
             </Component>
@@ -152,7 +149,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="txtUnits">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Unidadades:"/>
+                <Property name="text" type="java.lang.String" value="Unidades:"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -185,6 +182,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCleanActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

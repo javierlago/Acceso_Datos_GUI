@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package Windows;
+import java.util.ArrayList;
 import logic.Modulo;
 /**
  *
@@ -12,12 +13,18 @@ public class AddModulo extends javax.swing.JDialog {
 
     /**
      * Creates new form AddModulo
+     * @param parent
+     * @param modal
+     * @param modulos Listado de modulo que proviene de principal
      */
-    public AddModulo(java.awt.Frame parent, boolean modal) {
+    public AddModulo(java.awt.Frame parent, boolean modal,ArrayList<Modulo> modulos) {
         super(parent, modal);
         initComponents();
+        this.modulos=modulos;
+        
+        
     }
-
+    ArrayList<Modulo> modulos = new ArrayList();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,17 +52,11 @@ public class AddModulo extends javax.swing.JDialog {
 
         panAnadirModulo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Añadir Modulo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 255))); // NOI18N
 
-        inputName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputNameActionPerformed(evt);
-            }
-        });
-
         txtName.setText("Nombre:");
 
         txtHours.setText("Horas:");
 
-        txtUnits.setText("Unidadades:");
+        txtUnits.setText("Unidades:");
 
         javax.swing.GroupLayout panAnadirModuloLayout = new javax.swing.GroupLayout(panAnadirModulo);
         panAnadirModulo.setLayout(panAnadirModuloLayout);
@@ -105,6 +106,11 @@ public class AddModulo extends javax.swing.JDialog {
 
         btnClean.setText("Limpiar");
         btnClean.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnClean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCleanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,13 +157,17 @@ public class AddModulo extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputNameActionPerformed
-
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-       
+       Modulo m = new Modulo(inputName.getText(),Integer.parseInt(inputHours.getText()),Integer.parseInt(inputUnits.getText()));
+       modulos.add(m);
+       this.dispose();
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
+     inputHours.setText("");
+    inputName.setText("");
+    inputUnits.setText("");
+    }//GEN-LAST:event_btnCleanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,4 +186,6 @@ public class AddModulo extends javax.swing.JDialog {
     private javax.swing.JLabel txtName;
     private javax.swing.JLabel txtUnits;
     // End of variables declaration//GEN-END:variables
+
+   
 }

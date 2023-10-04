@@ -13,8 +13,16 @@ import Windows.MainWindow;
  */
 public class Main {
     public static void main(String[] args) {
-       
-        MainWindow mw = new MainWindow();
+        
+        
+        
+        MenuPrincipal mp = new MenuPrincipal();
+        mp.addModulo(new Modulo("Acceso a datos",120,10));
+        mp.addModulo(new Modulo("Diseño de interfaces",100,9));
+        System.out.println(mp.getListaModulos());
+                
+        
+        MainWindow mw = new MainWindow(mp.getListaModulos(),mp.getListaAlumnos());
         mw.setVisible(true);
         
         

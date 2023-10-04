@@ -4,9 +4,9 @@
  */
 package Windows;
 
-import java.awt.Image;
-import java.awt.Toolkit;
-import javax.swing.ImageIcon;
+import java.util.ArrayList;
+import logic.Alumno;
+import logic.Modulo;
 
 
 
@@ -17,17 +17,22 @@ import javax.swing.ImageIcon;
 public class MainWindow extends javax.swing.JFrame {
 
     /**
+     * 
+     * 
      * Creates new form MainWindow
+     * @param modulos
+     * @param alumno
      */
-    public MainWindow() {
+    
+    
+    public MainWindow(ArrayList<Modulo> modulos,ArrayList<Alumno> alumno) {
         initComponents();
-        
-
+        this.modulos=modulos;
+        this.alumno=alumno;
         
     }
-    // Icono del JFrame
- 
-
+    ArrayList<Modulo> modulos= new ArrayList();
+    ArrayList<Alumno> alumno= new ArrayList();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -153,17 +158,17 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnadirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirAlumnoActionPerformed
-       AddStudents addalumno = new AddStudents(this, true);
+     AddStudents addalumno = new AddStudents(this, true,modulos,alumno);
      addalumno.setVisible(true);
     }//GEN-LAST:event_btnAnadirAlumnoActionPerformed
 
     private void btnAnadirModuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirModuloActionPerformed
-        AddModulo addmodulo = new AddModulo(this, true);
+        AddModulo addmodulo = new AddModulo(this, true,modulos);
         addmodulo.setVisible(true);
     }//GEN-LAST:event_btnAnadirModuloActionPerformed
 
     private void btnVerAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlumnoActionPerformed
-       ShowStudent showstudent = new ShowStudent(this,true);
+       ShowStudent showstudent = new ShowStudent(this,true,alumno);
        showstudent.setVisible(true);
     }//GEN-LAST:event_btnVerAlumnoActionPerformed
 

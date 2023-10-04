@@ -12,15 +12,19 @@ import java.util.ArrayList;
  */
 public class Alumno {
 
-    public Alumno(String nombre, String localidad,ArrayList<Modulo> modulos) {
+    public Alumno(String nombre, String localidad,ArrayList<Modulo> modulosStudent) {
         this.nombre = nombre;
         this.localidad = localidad;
-        this.modulos = modulos;
+        this.modulosStudent = modulosStudent;
     }
     
     String nombre,localidad;
+
+    public ArrayList<Modulo> getModulosStudent() {
+        return modulosStudent;
+    }
     
-    ArrayList<Modulo> modulos = new ArrayList();
+    ArrayList<Modulo> modulosStudent = new ArrayList();
 
     public String getNombre() {
         return nombre;
@@ -40,25 +44,31 @@ public class Alumno {
     
     
     public void anadirModulo(Modulo moduloA){
-    modulos.add(moduloA);
+    modulosStudent.add(moduloA);
     }
     
     public String[] getModulosName(){
-    String[] nombreModulos = new String[modulos.size()];
+    String[] nombreModulos = new String[modulosStudent.size()];
     
         for (int i=0;i<nombreModulos.length;i++){
-            nombreModulos[i]=modulos.get(i).getNombre();
+            nombreModulos[i]=modulosStudent.get(i).getNombre();
         }
         
      return nombreModulos;
     }
     public double getNumberHours(){
     double horasAcumuladas=0;
-    
-        for (Modulo h : modulos) {
+    if(!modulosStudent.isEmpty()){
+        for (Modulo h : modulosStudent) {
             horasAcumuladas += (double)h.getHoras();
         }
+    }
     return horasAcumuladas;
+    }
+
+    @Override
+    public String toString() {
+        return "Alumno{" + "nombre=" + nombre + ", localidad=" + localidad + ", modulosStudent=" + modulosStudent + '}';
     }
     
     
