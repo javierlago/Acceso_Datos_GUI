@@ -242,7 +242,7 @@ public class ShowStudent extends javax.swing.JDialog {
                 listModel.addElement(modulo.getNombre());
             }
             }
-          break;  
+         
         }
         
     }//GEN-LAST:event_btnShowStudentActionPerformed

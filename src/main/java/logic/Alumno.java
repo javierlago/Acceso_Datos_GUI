@@ -4,13 +4,14 @@
  */
 package logic;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Reibax
  */
-public class Alumno {
+public class Alumno implements Serializable{
 
     public Alumno(String nombre, String localidad,ArrayList<Modulo> modulosStudent) {
         this.nombre = nombre;

@@ -4,11 +4,13 @@
  */
 package logic;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Reibax
  */
-public class Modulo {
+public class Modulo implements Serializable{
     String nombre;
     int horas=0,unidades=0;
 

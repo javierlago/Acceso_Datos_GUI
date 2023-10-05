@@ -106,7 +106,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(btnAnadirAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAnadirModulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnVerAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +117,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(btnAnadirModulo)
                 .addGap(18, 18, 18)
                 .addComponent(btnVerAlumno)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         btnBarAlnumno.setText("Alumnos");

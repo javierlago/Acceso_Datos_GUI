@@ -5,6 +5,7 @@
 package logic;
 
 import Windows.MainWindow;
+import java.io.IOException;
 
 
 /**
@@ -12,7 +13,7 @@ import Windows.MainWindow;
  * @author Reibax
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
         
         

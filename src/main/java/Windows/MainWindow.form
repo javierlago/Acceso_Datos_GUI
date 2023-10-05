@@ -117,7 +117,7 @@
                       <Component id="btnAnadirModulo" alignment="1" max="32767" attributes="0"/>
                       <Component id="btnVerAlumno" alignment="1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="40" max="32767" attributes="0"/>
+                  <EmptySpace pref="76" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -130,7 +130,7 @@
                   <Component id="btnAnadirModulo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnVerAlumno" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="42" max="32767" attributes="0"/>
+                  <EmptySpace pref="98" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
