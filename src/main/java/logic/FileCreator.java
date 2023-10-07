@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class FileCreator {
     
     
     
-        static String directoryPath="src/main/java/files/";
+        static String directoryPath="src/main/java/Files/";
     
     
         public static File createJsontFile(String fileName) throws IOException {
@@ -46,7 +47,7 @@ public class FileCreator {
         Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
         try (FileWriter writer = new FileWriter(createJsontFile("ListadoModulos"))) {
             gson.toJson(listadoModulos, writer);
-           gson.toJson(listadoModulos);
+          
 
         }catch(FileNotFoundException e){
             System.err.println(e.getMessage());
@@ -59,17 +60,32 @@ public class FileCreator {
     }
         
         
+          public static ArrayList fileStudentsReaderFromJson(ArrayList<Alumno> listadoAcopiar){
+         String fileName = "src/main/java/Files/ListadoModulos.json";
+        Gson gson = new Gson();
+
+        try {
+            // Abre el archivo JSON con FileReader
+            FileReader fileReader = new FileReader(fileName);
+
+            // Utiliza Gson para deserializar el JSON en un objeto
+            MenuPrincipal listadoAlumnos = gson.fromJson(fileReader, MenuPrincipal.class);
+            listadoAcopiar = listadoAlumnos.getListaAlumnos();
+
+            // Cierra el FileReader
+            fileReader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+          }
         
         
         
-        
-        
-        
+        return listadoAcopiar;
         
     }
 
 
-    
+}   
     
     
     

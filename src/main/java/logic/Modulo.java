@@ -4,6 +4,7 @@
  */
 package logic;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 
 /**
@@ -11,8 +12,12 @@ import java.io.Serializable;
  * @author Reibax
  */
 public class Modulo implements Serializable{
+    @Expose
     String nombre;
-    int horas=0,unidades=0;
+    @Expose
+    int horas=0;
+    @Expose
+    int unidades=0;
 
     public Modulo(String nombre, int horas, int unidades) {
         this.nombre = nombre;
@@ -47,6 +52,9 @@ public class Modulo implements Serializable{
     @Override
     public String toString() {
         return "Modulo{" + "nombre=" + nombre + ", horas=" + horas + ", unidades=" + unidades + '}';
+    }
+
+    public Modulo() {
     }
     
     

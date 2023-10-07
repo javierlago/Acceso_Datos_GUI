@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Windows;
+package GUI;
 
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -46,13 +46,13 @@ public class MainWindow extends javax.swing.JFrame {
 
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        btnAnadirAlumno = new javax.swing.JButton();
-        btnAnadirModulo = new javax.swing.JButton();
         btnVerAlumno = new javax.swing.JButton();
+        btnAnadirModulo = new javax.swing.JButton();
+        btnAnadirAlumno = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         btnBarAlnumno = new javax.swing.JMenu();
-        itemAdd = new javax.swing.JMenuItem();
-        itenView = new javax.swing.JMenuItem();
+        itemAddAlumno = new javax.swing.JMenuItem();
+        itenShowAlumno = new javax.swing.JMenuItem();
         itemSave = new javax.swing.JMenuItem();
         btnBarModulo = new javax.swing.JMenu();
         itemAddModulo = new javax.swing.JMenuItem();
@@ -65,27 +65,13 @@ public class MainWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(img.getImage());
         setLocation(new java.awt.Point(0, 0));
+        setMaximumSize(new java.awt.Dimension(200, 175));
+        setMinimumSize(new java.awt.Dimension(200, 175));
+        setPreferredSize(new java.awt.Dimension(200, 175));
+        setResizable(false);
 
-        btnAnadirAlumno.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 14)); // NOI18N
-        btnAnadirAlumno.setForeground(new java.awt.Color(0, 0, 0));
-        btnAnadirAlumno.setText("Añadir Alumno");
-        btnAnadirAlumno.setAlignmentY(0.0F);
-        btnAnadirAlumno.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        btnAnadirAlumno.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        btnAnadirAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAnadirAlumnoActionPerformed(evt);
-            }
-        });
-
-        btnAnadirModulo.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 14)); // NOI18N
-        btnAnadirModulo.setForeground(new java.awt.Color(0, 0, 0));
-        btnAnadirModulo.setText("Añadir Módulo");
-        btnAnadirModulo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAnadirModuloActionPerformed(evt);
-            }
-        });
+        jPanel1.setPreferredSize(new java.awt.Dimension(200, 200));
+        jPanel1.setLayout(new java.awt.GridLayout(3, 1, 0, 10));
 
         btnVerAlumno.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 14)); // NOI18N
         btnVerAlumno.setForeground(new java.awt.Color(0, 0, 0));
@@ -95,43 +81,66 @@ public class MainWindow extends javax.swing.JFrame {
                 btnVerAlumnoActionPerformed(evt);
             }
         });
+        jPanel1.add(btnVerAlumno);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnAnadirAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAnadirModulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnVerAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(76, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(btnAnadirAlumno)
-                .addGap(18, 18, 18)
-                .addComponent(btnAnadirModulo)
-                .addGap(18, 18, 18)
-                .addComponent(btnVerAlumno)
-                .addContainerGap(98, Short.MAX_VALUE))
-        );
+        btnAnadirModulo.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 14)); // NOI18N
+        btnAnadirModulo.setForeground(new java.awt.Color(0, 0, 0));
+        btnAnadirModulo.setText("Añadir Módulo");
+        btnAnadirModulo.setMaximumSize(new java.awt.Dimension(110, 24));
+        btnAnadirModulo.setMinimumSize(new java.awt.Dimension(110, 24));
+        btnAnadirModulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnadirModuloActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAnadirModulo);
+
+        btnAnadirAlumno.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 14)); // NOI18N
+        btnAnadirAlumno.setForeground(new java.awt.Color(0, 0, 0));
+        btnAnadirAlumno.setText("Añadir Alumno");
+        btnAnadirAlumno.setAlignmentY(0.0F);
+        btnAnadirAlumno.setDefaultCapable(false);
+        btnAnadirAlumno.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        btnAnadirAlumno.setMaximumSize(new java.awt.Dimension(110, 24));
+        btnAnadirAlumno.setMinimumSize(new java.awt.Dimension(110, 24));
+        btnAnadirAlumno.setPreferredSize(new java.awt.Dimension(50, 26));
+        btnAnadirAlumno.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        btnAnadirAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnadirAlumnoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAnadirAlumno);
+
+        menuBar.setMaximumSize(new java.awt.Dimension(127, 23));
 
         btnBarAlnumno.setText("Alumnos");
 
-        itemAdd.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itemAdd.setText("Añadir Alumno");
-        btnBarAlnumno.add(itemAdd);
+        itemAddAlumno.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemAddAlumno.setText("Añadir Alumno");
+        itemAddAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemAddAlumnoActionPerformed(evt);
+            }
+        });
+        btnBarAlnumno.add(itemAddAlumno);
 
-        itenView.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itenView.setText("Ver Alumno");
-        btnBarAlnumno.add(itenView);
+        itenShowAlumno.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itenShowAlumno.setText("Ver Alumno");
+        itenShowAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itenShowAlumnoActionPerformed(evt);
+            }
+        });
+        btnBarAlnumno.add(itenShowAlumno);
 
         itemSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itemSave.setText("Guardar Alumno");
+        itemSave.setText("CargarAlumnos");
+        itemSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemSaveActionPerformed(evt);
+            }
+        });
         btnBarAlnumno.add(itemSave);
 
         menuBar.add(btnBarAlnumno);
@@ -141,10 +150,15 @@ public class MainWindow extends javax.swing.JFrame {
         itemAddModulo.setText("Añadir Módulo");
         btnBarModulo.add(itemAddModulo);
 
-        itemSaveModulo.setText("Guardar Modulo");
+        itemSaveModulo.setText("Mostrar");
         btnBarModulo.add(itemSaveModulo);
 
-        itemShowModulo.setText("Mostrar Modulo");
+        itemShowModulo.setText("Cargar Modulos");
+        itemShowModulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemShowModuloActionPerformed(evt);
+            }
+        });
         btnBarModulo.add(itemShowModulo);
 
         menuBar.add(btnBarModulo);
@@ -155,11 +169,11 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
         );
 
         pack();
@@ -181,6 +195,22 @@ public class MainWindow extends javax.swing.JFrame {
        showstudent.setVisible(true);
     }//GEN-LAST:event_btnVerAlumnoActionPerformed
 
+    private void itemAddAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAddAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemAddAlumnoActionPerformed
+
+    private void itenShowAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itenShowAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itenShowAlumnoActionPerformed
+
+    private void itemSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemSaveActionPerformed
+
+    private void itemShowModuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemShowModuloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemShowModuloActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -192,12 +222,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu btnBarAlnumno;
     private javax.swing.JMenu btnBarModulo;
     private javax.swing.JButton btnVerAlumno;
-    private javax.swing.JMenuItem itemAdd;
+    private javax.swing.JMenuItem itemAddAlumno;
     private javax.swing.JMenuItem itemAddModulo;
     private javax.swing.JMenuItem itemSave;
     private javax.swing.JMenuItem itemSaveModulo;
     private javax.swing.JMenuItem itemShowModulo;
-    private javax.swing.JMenuItem itenView;
+    private javax.swing.JMenuItem itenShowAlumno;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuBar menuBar;

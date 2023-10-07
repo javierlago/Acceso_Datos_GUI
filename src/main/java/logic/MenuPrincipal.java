@@ -4,13 +4,14 @@
  */
 package logic;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Reibax
  */
-public class MenuPrincipal {
+public class MenuPrincipal implements Serializable{
 
     public MenuPrincipal() {
         

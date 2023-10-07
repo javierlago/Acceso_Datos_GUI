@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package Windows;
+package GUI;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
@@ -63,15 +63,13 @@ public class AddStudents extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(img.getImage());
-        setMaximumSize(new java.awt.Dimension(395, 440));
         setMinimumSize(new java.awt.Dimension(395, 440));
-        setPreferredSize(new java.awt.Dimension(395, 333));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 400));
 
         jLabel1.setText("ALTA ALUMNOS");
 
-        panAddStudent.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Añadir Alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 0, 255))); // NOI18N
+        panAddStudent.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Añadir Alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 255))); // NOI18N
 
         inputNameStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
