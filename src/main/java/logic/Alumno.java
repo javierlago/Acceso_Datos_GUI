@@ -19,13 +19,13 @@ public class Alumno implements Serializable{
         this.localidad = localidad;
         this.modulosStudent = modulosStudent;
     }
-    @Expose
+  
     String nombre,localidad;
     
     public ArrayList<Modulo> getModulosStudent() {
         return modulosStudent;
     }
-    @Expose
+   
     ArrayList<Modulo> modulosStudent;
 
     public String getNombre() {

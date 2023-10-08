@@ -1,0 +1,22 @@
+[
+  {
+    "nombre": "Acceso a datos",
+    "horas": 120,
+    "unidades": 10
+  },
+  {
+    "nombre": "Diseño de interfaces",
+    "horas": 100,
+    "unidades": 9
+  },
+  {
+    "nombre": "Entornos  de desarrollo",
+    "horas": 80,
+    "unidades": 9
+  },
+  {
+    "nombre": "Formacion y orientacion laboral",
+    "horas": 70,
+    "unidades": 9
+  }
+]

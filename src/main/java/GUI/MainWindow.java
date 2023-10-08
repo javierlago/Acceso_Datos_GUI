@@ -7,6 +7,7 @@ package GUI;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import logic.Alumno;
+import logic.FileCreator;
 import logic.Modulo;
 
 
@@ -208,7 +209,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_itemSaveActionPerformed
 
     private void itemShowModuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemShowModuloActionPerformed
-        // TODO add your handling code here:
+       modulos=FileCreator.fileReaderSubjectFromJson();
     }//GEN-LAST:event_itemShowModuloActionPerformed
 
     /**

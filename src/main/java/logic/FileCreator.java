@@ -3,13 +3,13 @@ package logic;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import logic.Modulo;
 /**
  *
  * @author a22javierla
@@ -29,7 +29,7 @@ public class FileCreator {
  
     public static void crearListadoAlumnos(ArrayList<Alumno> listadoAlumnos)throws IOException,FileNotFoundException{
         Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
-        try (FileWriter writer = new FileWriter(createJsontFile("Alumnos"))) {
+        try (FileWriter writer = new FileWriter(createJsontFile("ListadoAlumnos"))) {
             gson.toJson(listadoAlumnos, writer);
            gson.toJson(listadoAlumnos);
 
@@ -43,10 +43,10 @@ public class FileCreator {
 
     }
         
-          public static void crearListadoModulos(ArrayList<Modulo> listadoModulos)throws IOException,FileNotFoundException{
-        Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
+          public static void crearListadoModulos(ArrayList<Modulo> listado)throws IOException,FileNotFoundException{
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (FileWriter writer = new FileWriter(createJsontFile("ListadoModulos"))) {
-            gson.toJson(listadoModulos, writer);
+            gson.toJson(listado, writer);
           
 
         }catch(FileNotFoundException e){
@@ -61,7 +61,7 @@ public class FileCreator {
         
         
           public static ArrayList fileStudentsReaderFromJson(ArrayList<Alumno> listadoAcopiar){
-         String fileName = "src/main/java/Files/ListadoModulos.json";
+         String fileName = "src/main/java/Files/ListadoAlumnos.json";
         Gson gson = new Gson();
 
         try {
@@ -83,6 +83,29 @@ public class FileCreator {
         return listadoAcopiar;
         
     }
+          public static ArrayList fileReaderSubjectFromJson(){
+         String fileName = "src/main/java/Files/ListadoModulos.json";
+        Gson gson = new Gson();
+        ArrayList<Modulo> listado = new ArrayList();
+        
+        try {
+            // Abre el archivo JSON con FileReader
+            FileReader fileReader = new FileReader(fileName);
+            java.lang.reflect.Type tipoLista = new TypeToken<ArrayList<Modulo>>() {}.getType();
+            listado = gson.fromJson(fileReader,tipoLista);
+            
+            // Cierra el FileReader
+            fileReader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+          }
+        
+        
+        
+        return listado;
+        
+    }
+
 
 
 }   

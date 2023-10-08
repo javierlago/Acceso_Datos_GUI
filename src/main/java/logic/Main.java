@@ -18,17 +18,18 @@ public class Main {
         
         
         MenuPrincipal mp = new MenuPrincipal();
-        mp.addModulo(new Modulo("Acceso a datos",120,10));
-        mp.addModulo(new Modulo("Diseño de interfaces",100,9));
-        mp.addModulo(new Modulo("Diseño de interfaces",100,9));
+//        mp.addModulo(new Modulo("Acceso a datos",120,10));
+//        mp.addModulo(new Modulo("Diseño de interfaces",100,9));
+//        mp.addModulo(new Modulo("Entornos  de desarrollo",80,9));
+//        mp.addModulo(new Modulo("Formacion y orientacion laboral",70,9));
         System.out.println(mp.getListaModulos());
-
+//        FileCreator.crearListadoModulos(mp.getListaModulos());
                 
         
         
         MainWindow mw = new MainWindow(mp.getListaModulos(),mp.getListaAlumnos());
         mw.setVisible(true);
-        System.out.println(mp.getListaAlumnos().toString());
+        System.out.println(mp.getListaAlumnos().toString()+mp.listaModulos.toString());
         
     }
     
