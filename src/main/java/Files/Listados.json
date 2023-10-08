@@ -1,0 +1,89 @@
+{
+  "listaAlumnos": [
+    {
+      "nombre": "Javier",
+      "localidad": "Vigo",
+      "modulosStudent": [
+        {
+          "nombre": "Acceso a datos",
+          "horas": 120,
+          "unidades": 10
+        },
+        {
+          "nombre": "Diseño de interfaces",
+          "horas": 100,
+          "unidades": 9
+        }
+      ]
+    },
+    {
+      "nombre": "Manuel",
+      "localidad": "Fornelos",
+      "modulosStudent": [
+        {
+          "nombre": "Acceso a datos",
+          "horas": 120,
+          "unidades": 10
+        },
+        {
+          "nombre": "Diseño de interfaces",
+          "horas": 100,
+          "unidades": 9
+        },
+        {
+          "nombre": "Entornos  de desarrollo",
+          "horas": 80,
+          "unidades": 9
+        }
+      ]
+    },
+    {
+      "nombre": "Fernando",
+      "localidad": "Fornelos",
+      "modulosStudent": [
+        {
+          "nombre": "Acceso a datos",
+          "horas": 120,
+          "unidades": 10
+        },
+        {
+          "nombre": "Diseño de interfaces",
+          "horas": 100,
+          "unidades": 9
+        },
+        {
+          "nombre": "Entornos  de desarrollo",
+          "horas": 80,
+          "unidades": 9
+        },
+        {
+          "nombre": "Formacion y orientacion laboral",
+          "horas": 70,
+          "unidades": 9
+        }
+      ]
+    }
+  ],
+  "listaModulos": [
+    {
+      "nombre": "Acceso a datos",
+      "horas": 120,
+      "unidades": 10
+    },
+    {
+      "nombre": "Diseño de interfaces",
+      "horas": 100,
+      "unidades": 9
+    },
+    {
+      "nombre": "Entornos  de desarrollo",
+      "horas": 80,
+      "unidades": 9
+    },
+    {
+      "nombre": "Formacion y orientacion laboral",
+      "horas": 70,
+      "unidades": 9
+    }
+  ]
+}

@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import logic.Container;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import logic.Alumno;
@@ -54,11 +55,11 @@ public class MainWindow extends javax.swing.JFrame {
         btnBarAlnumno = new javax.swing.JMenu();
         itemAddAlumno = new javax.swing.JMenuItem();
         itenShowAlumno = new javax.swing.JMenuItem();
-        itemSave = new javax.swing.JMenuItem();
+        loadStudents = new javax.swing.JMenuItem();
         btnBarModulo = new javax.swing.JMenu();
         itemAddModulo = new javax.swing.JMenuItem();
         itemSaveModulo = new javax.swing.JMenuItem();
-        itemShowModulo = new javax.swing.JMenuItem();
+        loadModulos = new javax.swing.JMenuItem();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -66,9 +67,7 @@ public class MainWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(img.getImage());
         setLocation(new java.awt.Point(0, 0));
-        setMaximumSize(new java.awt.Dimension(200, 175));
         setMinimumSize(new java.awt.Dimension(200, 175));
-        setPreferredSize(new java.awt.Dimension(200, 175));
         setResizable(false);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(200, 200));
@@ -135,14 +134,14 @@ public class MainWindow extends javax.swing.JFrame {
         });
         btnBarAlnumno.add(itenShowAlumno);
 
-        itemSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itemSave.setText("CargarAlumnos");
-        itemSave.addActionListener(new java.awt.event.ActionListener() {
+        loadStudents.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        loadStudents.setText("CargarAlumnos");
+        loadStudents.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemSaveActionPerformed(evt);
+                loadStudentsActionPerformed(evt);
             }
         });
-        btnBarAlnumno.add(itemSave);
+        btnBarAlnumno.add(loadStudents);
 
         menuBar.add(btnBarAlnumno);
 
@@ -154,13 +153,13 @@ public class MainWindow extends javax.swing.JFrame {
         itemSaveModulo.setText("Mostrar");
         btnBarModulo.add(itemSaveModulo);
 
-        itemShowModulo.setText("Cargar Modulos");
-        itemShowModulo.addActionListener(new java.awt.event.ActionListener() {
+        loadModulos.setText("Cargar Modulos");
+        loadModulos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemShowModuloActionPerformed(evt);
+                loadModulosActionPerformed(evt);
             }
         });
-        btnBarModulo.add(itemShowModulo);
+        btnBarModulo.add(loadModulos);
 
         menuBar.add(btnBarModulo);
 
@@ -201,16 +200,23 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_itemAddAlumnoActionPerformed
 
     private void itenShowAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itenShowAlumnoActionPerformed
-        // TODO add your handling code here:
+    Container c =FileCreator.recoverData();
+ 
     }//GEN-LAST:event_itenShowAlumnoActionPerformed
 
-    private void itemSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSaveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemSaveActionPerformed
+    private void loadStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadStudentsActionPerformed
+        Container c =FileCreator.recoverData();
+    alumno=c.getListaAlumnos(); 
+    
+        System.out.println(alumno.toString());  
+    }//GEN-LAST:event_loadStudentsActionPerformed
 
-    private void itemShowModuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemShowModuloActionPerformed
-       modulos=FileCreator.fileReaderSubjectFromJson();
-    }//GEN-LAST:event_itemShowModuloActionPerformed
+    private void loadModulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadModulosActionPerformed
+    Container c =FileCreator.recoverData();
+    modulos=c.getListaModulos();
+        System.out.println(modulos.toString());
+            
+    }//GEN-LAST:event_loadModulosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,12 +231,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton btnVerAlumno;
     private javax.swing.JMenuItem itemAddAlumno;
     private javax.swing.JMenuItem itemAddModulo;
-    private javax.swing.JMenuItem itemSave;
     private javax.swing.JMenuItem itemSaveModulo;
-    private javax.swing.JMenuItem itemShowModulo;
     private javax.swing.JMenuItem itenShowAlumno;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem loadModulos;
+    private javax.swing.JMenuItem loadStudents;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
 

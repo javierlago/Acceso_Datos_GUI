@@ -11,14 +11,20 @@ import java.util.ArrayList;
  *
  * @author Reibax
  */
-public class MenuPrincipal implements Serializable{
+public class Container implements Serializable {
 
-    public MenuPrincipal() {
-        
-        
+    public Container() {
+
     }
-    
-    
+
+    public void setListaAlumnos(ArrayList<Alumno> listaAlumnos) {
+        this.listaAlumnos = listaAlumnos;
+    }
+
+    public void setListaModulos(ArrayList<Modulo> listaModulos) {
+        this.listaModulos = listaModulos;
+    }
+
     ArrayList<Alumno> listaAlumnos = new ArrayList();
     ArrayList<Modulo> listaModulos = new ArrayList();
 
@@ -30,11 +36,13 @@ public class MenuPrincipal implements Serializable{
         return listaModulos;
     }
 
-   public void addModulo(Modulo modulo){
-       listaModulos.add(modulo);
+    public void addModulo(Modulo modulo) {
+        listaModulos.add(modulo);
     }
-   
- 
-    
-    
+
+    public void addAlumno(Alumno alumno) {
+        listaAlumnos.add(alumno);
+
+    }
+
 }

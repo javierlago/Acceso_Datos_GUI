@@ -42,7 +42,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itenShowAlumnoActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="itemSave">
+            <MenuItem class="javax.swing.JMenuItem" name="loadStudents">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+3"/>
@@ -50,7 +50,7 @@
                 <Property name="text" type="java.lang.String" value="CargarAlumnos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemSaveActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loadStudentsActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -70,12 +70,12 @@
                 <Property name="text" type="java.lang.String" value="Mostrar"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="itemShowModulo">
+            <MenuItem class="javax.swing.JMenuItem" name="loadModulos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cargar Modulos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemShowModuloActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loadModulosActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
