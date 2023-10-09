@@ -13,11 +13,17 @@ import java.util.ArrayList;
 /**
  *
  * @author a22javierla
+ * 
  */
+
+
+
 public class FileCreator {
 
     static String directoryPath = "src/main/java/Files/";
 
+    
+  
     public static File createJsontFile(String fileName) throws IOException {
         File fileJson = new File(directoryPath + fileName + ".json");
         if (!fileJson.exists()) {
@@ -26,10 +32,10 @@ public class FileCreator {
         return fileJson;
     }
 
-    public static void createDatabase(Container listadoAlumnos) throws IOException, FileNotFoundException {
+    public static void createData(Container dataContainer) throws IOException, FileNotFoundException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (FileWriter writer = new FileWriter(createJsontFile("Listados"))) {
-            gson.toJson(listadoAlumnos, writer);
+            gson.toJson(dataContainer, writer);
 
         } catch (FileNotFoundException e) {
             System.err.println(e.getMessage());

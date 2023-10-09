@@ -10,7 +10,7 @@ import logic.Modulo;
  *
  * @author Reibax
  */
-public class AddModulo extends javax.swing.JDialog {
+public class AddSubject extends javax.swing.JDialog {
 
     /**
      * Creates new form AddModulo
@@ -18,7 +18,7 @@ public class AddModulo extends javax.swing.JDialog {
      * @param modal
      * @param modulos Listado de modulo que proviene de principal
      */
-    public AddModulo(java.awt.Frame parent, boolean modal,ArrayList<Modulo> modulos) {
+    public AddSubject(java.awt.Frame parent, boolean modal,ArrayList<Modulo> modulos) {
         super(parent, modal);
         initComponents();
         this.modulos=modulos;

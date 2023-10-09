@@ -28,7 +28,8 @@ public class AddStudents extends javax.swing.JDialog {
         this.modulos=modulos;
         this.alumno=alumno;
         for (Modulo modulo: modulos) {
-          dspModulos.addItem(modulo.getNombre());     
+        dspModulos.addItem(modulo.getNombre());  
+        
         }
         
       
@@ -203,9 +204,12 @@ public class AddStudents extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void anadirElemento(){
-    listadoModulos.add(dspModulos.getComponent(WIDTH));
+    public void checkList(){
     
+    if(dspModulos.getItemCount()==0){
+        System.out.println("No hay mdulos cargados para registrar a un alumno");
+    
+    }
     }
     
     private void inputNameStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNameStudentActionPerformed
@@ -213,7 +217,7 @@ public class AddStudents extends javax.swing.JDialog {
     }//GEN-LAST:event_inputNameStudentActionPerformed
 
     private void btnSaveStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveStudentActionPerformed
-       listadoModulos.setModel(listModel);
+       listadoModulos.setModel(listModel);      
         ArrayList<Modulo> modulosStudent = new ArrayList<>();
         for (int i = 0; i<listModel.size();i++){ 
             for (Modulo modulo : modulos) {

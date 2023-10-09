@@ -182,11 +182,13 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void btnAnadirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirAlumnoActionPerformed
      AddStudents addalumno = new AddStudents(this, true,this.modulos,this.alumno);
+     addalumno.checkList();
      addalumno.setVisible(true);
+     
     }//GEN-LAST:event_btnAnadirAlumnoActionPerformed
 
     private void btnAnadirModuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirModuloActionPerformed
-        AddModulo addmodulo = new AddModulo(this, true,modulos);
+        AddSubject addmodulo = new AddSubject(this, true,modulos);
         addmodulo.setVisible(true);
     }//GEN-LAST:event_btnAnadirModuloActionPerformed
 
