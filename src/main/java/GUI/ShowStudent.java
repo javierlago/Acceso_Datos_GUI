@@ -73,7 +73,7 @@ public class ShowStudent extends javax.swing.JDialog {
             }
         });
 
-        pnlShowStudent.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Hack Nerd Font Mono", 1, 12), new java.awt.Color(0, 0, 204))); // NOI18N
+        pnlShowStudent.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Datos del alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Hack Nerd Font Mono", 1, 12), new java.awt.Color(0, 0, 204))); // NOI18N
 
         txtNameData.setText("Nombre:");
 
@@ -113,6 +113,7 @@ public class ShowStudent extends javax.swing.JDialog {
         txtShowHours.setFont(new java.awt.Font("Hack Nerd Font Mono", 1, 14)); // NOI18N
         txtShowHours.setForeground(new java.awt.Color(0, 0, 0));
         txtShowHours.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtShowHours.setDragEnabled(true);
         txtShowHours.setEnabled(false);
 
         javax.swing.GroupLayout pnlShowStudentLayout = new javax.swing.GroupLayout(pnlShowStudent);

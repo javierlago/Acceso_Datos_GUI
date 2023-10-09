@@ -84,6 +84,11 @@
       "nombre": "Formacion y orientacion laboral",
       "horas": 70,
       "unidades": 9
+    },
+    {
+      "nombre": "Empresa e Inciativa Emprendedora",
+      "horas": 50,
+      "unidades": 10
     }
   ]
 }

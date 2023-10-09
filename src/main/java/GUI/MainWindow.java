@@ -7,6 +7,7 @@ package GUI;
 import logic.Container;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import logic.Alumno;
 import logic.FileCreator;
 import logic.Modulo;
@@ -47,6 +48,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jPanel1 = new javax.swing.JPanel();
         btnVerAlumno = new javax.swing.JButton();
         btnAnadirModulo = new javax.swing.JButton();
@@ -63,6 +65,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(img.getImage());
@@ -100,7 +105,6 @@ public class MainWindow extends javax.swing.JFrame {
         btnAnadirAlumno.setText("Añadir Alumno");
         btnAnadirAlumno.setAlignmentY(0.0F);
         btnAnadirAlumno.setDefaultCapable(false);
-        btnAnadirAlumno.setMargin(new java.awt.Insets(2, 14, 2, 14));
         btnAnadirAlumno.setMaximumSize(new java.awt.Dimension(110, 24));
         btnAnadirAlumno.setMinimumSize(new java.awt.Dimension(110, 24));
         btnAnadirAlumno.setPreferredSize(new java.awt.Dimension(50, 26));
@@ -173,7 +177,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, Short.MAX_VALUE)
         );
 
         pack();
@@ -182,8 +186,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void btnAnadirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirAlumnoActionPerformed
      AddStudents addalumno = new AddStudents(this, true,this.modulos,this.alumno);
-     addalumno.checkList();
-     addalumno.setVisible(true);
+     if(addalumno.checkList()){
+         JOptionPane.showMessageDialog(this,"No puedes añadir un alumno sin haber cargado los modulos","Error",JOptionPane.ERROR_MESSAGE);
+     }
+     else{
+      addalumno.setVisible(true);
+     }
      
     }//GEN-LAST:event_btnAnadirAlumnoActionPerformed
 
@@ -237,6 +245,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem itenShowAlumno;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JMenuItem loadModulos;
     private javax.swing.JMenuItem loadStudents;
     private javax.swing.JMenuBar menuBar;

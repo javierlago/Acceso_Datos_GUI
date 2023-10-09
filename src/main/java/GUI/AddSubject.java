@@ -3,8 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package GUI;
+import java.io.IOException;
+import logic.Container;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import logic.FileCreator;
 import logic.Modulo;
 /**
  *
@@ -161,13 +166,21 @@ public class AddSubject extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+       Container container = FileCreator.recoverData();
+       
        Modulo m = new Modulo(inputName.getText(),Integer.parseInt(inputHours.getText()),Integer.parseInt(inputUnits.getText()));
+       container.addModulo(m);
        modulos.add(m);
+        try {
+            FileCreator.createData(container);
+        } catch (IOException ex) {
+            Logger.getLogger(AddSubject.class.getName()).log(Level.SEVERE, null, ex);
+        }
        this.dispose();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
-     inputHours.setText("");
+    inputHours.setText("");
     inputName.setText("");
     inputUnits.setText("");
     }//GEN-LAST:event_btnCleanActionPerformed

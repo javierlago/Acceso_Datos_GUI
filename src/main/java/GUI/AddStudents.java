@@ -3,11 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package GUI;
-
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import logic.*;
+import logic.Container;
 
 /**
  *
@@ -70,11 +73,17 @@ public class AddStudents extends javax.swing.JDialog {
 
         jLabel1.setText("ALTA ALUMNOS");
 
-        panAddStudent.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Añadir Alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 255))); // NOI18N
+        panAddStudent.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Añadir Alumno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 0, 255))); // NOI18N
 
         inputNameStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputNameStudentActionPerformed(evt);
+            }
+        });
+
+        inputLocalidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputLocalidadActionPerformed(evt);
             }
         });
 
@@ -134,6 +143,11 @@ public class AddStudents extends javax.swing.JDialog {
         });
 
         jButton2.setText("Limpiar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Quitar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -204,12 +218,8 @@ public class AddStudents extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    public void checkList(){
-    
-    if(dspModulos.getItemCount()==0){
-        System.out.println("No hay mdulos cargados para registrar a un alumno");
-    
-    }
+    public boolean checkList(){
+        return dspModulos.getItemCount()==0;
     }
     
     private void inputNameStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNameStudentActionPerformed
@@ -229,7 +239,15 @@ public class AddStudents extends javax.swing.JDialog {
         }
         
         alumno.add(new Alumno(inputNameStudent.getText(),inputLocalidad.getText(),modulosStudent));
-        System.out.println(alumno.toString());
+        Container container = FileCreator.recoverData();
+        container.addAlumno(new Alumno(inputNameStudent.getText(),inputLocalidad.getText(),modulosStudent));
+        try {
+            FileCreator.createData(container);
+        } catch (Exception e) {
+            
+        }
+       
+        
        this.dispose();
     }//GEN-LAST:event_btnSaveStudentActionPerformed
 
@@ -248,6 +266,17 @@ public class AddStudents extends javax.swing.JDialog {
     private void listadoModulosComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_listadoModulosComponentAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_listadoModulosComponentAdded
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        listadoModulos.removeAll();
+        inputLocalidad.setText("");
+        inputNameStudent.setText("");
+              
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void inputLocalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputLocalidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputLocalidadActionPerformed
   
        /**
      * @param args the command line arguments
