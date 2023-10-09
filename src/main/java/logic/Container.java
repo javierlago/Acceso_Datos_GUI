@@ -28,11 +28,11 @@ public class Container implements Serializable {
     ArrayList<Alumno> listaAlumnos = new ArrayList();
     ArrayList<Modulo> listaModulos = new ArrayList();
 
-    public ArrayList<Alumno> getListaAlumnos() {
+    public ArrayList<Alumno> getStudentsList() {
         return listaAlumnos;
     }
 
-    public ArrayList<Modulo> getListaModulos() {
+    public ArrayList<Modulo> getSubjectsList() {
         return listaModulos;
     }
 

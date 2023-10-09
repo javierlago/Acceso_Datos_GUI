@@ -25,19 +25,20 @@ public class MainWindow extends javax.swing.JFrame {
      * 
      * Creates new form MainWindow
      * @param modulos
-     * @param alumno
+     * @param students
      */
     
     
-    public MainWindow(ArrayList<Modulo> modulos,ArrayList<Alumno> alumno) {
+    public MainWindow(ArrayList<Modulo> modulos,ArrayList<Alumno> students) {
         initComponents();
-        this.modulos=modulos;
-        this.alumno=alumno;
+        this.subject=modulos;
+        this.student=students;
         
     }
-    ArrayList<Modulo> modulos = new ArrayList();
-    ArrayList<Alumno> alumno = new ArrayList();
+    ArrayList<Modulo> subject = new ArrayList();
+    ArrayList<Alumno> student = new ArrayList();
     ImageIcon img = new ImageIcon("src/main/java/img/Book.png");
+    AddSubject addSubject = new AddSubject(this, true,subject);
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -185,47 +186,55 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnadirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirAlumnoActionPerformed
-     AddStudents addalumno = new AddStudents(this, true,this.modulos,this.alumno);
-     if(addalumno.checkList()){
+    AddStudents addStudents = new AddStudents(this, true,this.subject,this.student);
+     if(addStudents.checkList()){
          JOptionPane.showMessageDialog(this,"No puedes añadir un alumno sin haber cargado los modulos","Error",JOptionPane.ERROR_MESSAGE);
      }
      else{
-      addalumno.setVisible(true);
+      addStudents.setVisible(true);
      }
      
     }//GEN-LAST:event_btnAnadirAlumnoActionPerformed
 
     private void btnAnadirModuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirModuloActionPerformed
-        AddSubject addmodulo = new AddSubject(this, true,modulos);
-        addmodulo.setVisible(true);
+        AddSubject addSubject = new AddSubject(this, true,subject);
+        addSubject.setVisible(true);
     }//GEN-LAST:event_btnAnadirModuloActionPerformed
 
     private void btnVerAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlumnoActionPerformed
-       ShowStudent showstudent = new ShowStudent(this,true,this.alumno);
-       showstudent.setVisible(true);
+     ShowStudent showStudent = new ShowStudent(this,true,student);
+        if(student.isEmpty()){ JOptionPane.showMessageDialog(this, "No se ha guardado ni cargado ningun alumno","Error",JOptionPane.ERROR_MESSAGE);}else{showStudent.setVisible(true);}
     }//GEN-LAST:event_btnVerAlumnoActionPerformed
 
     private void itemAddAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAddAlumnoActionPerformed
-        // TODO add your handling code here:
+    AddStudents addStudents = new AddStudents(this, true,this.subject,this.student);
+        if(addStudents.checkList()){
+         JOptionPane.showMessageDialog(this,"No puedes añadir un alumno sin haber cargado los modulos","Error",JOptionPane.ERROR_MESSAGE);
+     }
+     else{
+      
+      addStudents.setVisible(true);
+     }
     }//GEN-LAST:event_itemAddAlumnoActionPerformed
 
     private void itenShowAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itenShowAlumnoActionPerformed
-    Container c =FileCreator.recoverData();
- 
+    if(student.isEmpty()){ JOptionPane.showMessageDialog(this, "No se ha guardado ni cargado ningun alumno","Error",JOptionPane.ERROR_MESSAGE);
+    }else{
+        ShowStudent showstudent = new ShowStudent(this,true,this.student);
+        showstudent.setVisible(true);}
+    
     }//GEN-LAST:event_itenShowAlumnoActionPerformed
 
     private void loadStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadStudentsActionPerformed
-        Container c =FileCreator.recoverData();
-    alumno=c.getListaAlumnos(); 
-    
-        System.out.println(alumno.toString());  
+    Container c =FileCreator.recoverData();
+    this.student=c.getStudentsList(); 
+    System.out.println(student.toString());  
     }//GEN-LAST:event_loadStudentsActionPerformed
 
     private void loadModulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadModulosActionPerformed
     Container c =FileCreator.recoverData();
-    modulos=c.getListaModulos();
-        System.out.println(modulos.toString());
-            
+    subject=c.getSubjectsList();
+    System.out.println(subject.toString());        
     }//GEN-LAST:event_loadModulosActionPerformed
 
     /**

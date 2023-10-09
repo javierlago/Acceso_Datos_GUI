@@ -25,10 +25,10 @@ public class ShowStudent extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.alumnos=alumnos;
-        listModel.removeAllElements();
+        
     }
     ImageIcon img = new ImageIcon("src/main/java/img/lg.png");
-    ArrayList<Alumno> alumnos = new ArrayList<>();  
+    ArrayList<Alumno> alumnos;  
     DefaultListModel<String> listModel = new DefaultListModel<>();
     
     /**
@@ -230,8 +230,9 @@ public class ShowStudent extends javax.swing.JDialog {
     }//GEN-LAST:event_txtShowNamePropertyChange
 
     private void btnShowStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowStudentActionPerformed
-        listModel.removeAllElements();
-        for (Alumno alumno : alumnos) {
+        System.out.println("Hola");
+      
+        for (Alumno alumno : this.alumnos) {
             
             if(txtStudentName.getText().equalsIgnoreCase(alumno.getNombre())){
             System.out.println(alumno.toString());
@@ -242,6 +243,7 @@ public class ShowStudent extends javax.swing.JDialog {
             for (Modulo modulo : alumno.getModulosStudent()) {
                 listModel.addElement(modulo.getNombre());
             }
+                System.out.println(alumno.toString());
             }
          
         }

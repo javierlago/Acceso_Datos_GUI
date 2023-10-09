@@ -47,9 +47,9 @@ public class Main {
 //        FileCreator.crearListadoModulos(mp.getListaModulos());
 
         MainWindow mw;
-        mw = new MainWindow(container.getListaModulos(), container.getListaAlumnos());
+        mw = new MainWindow(container.getSubjectsList(), container.getStudentsList());
         mw.setVisible(true);
-        System.out.println(container.getListaAlumnos().toString() + container.listaModulos.toString());
+        System.out.println(container.getStudentsList().toString() + container.listaModulos.toString());
 
     }
 

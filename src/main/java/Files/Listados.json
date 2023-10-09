@@ -62,6 +62,27 @@
           "unidades": 9
         }
       ]
+    },
+    {
+      "nombre": "Alberto",
+      "localidad": "Lalin",
+      "modulosStudent": [
+        {
+          "nombre": "Acceso a datos",
+          "horas": 120,
+          "unidades": 10
+        },
+        {
+          "nombre": "Entornos  de desarrollo",
+          "horas": 80,
+          "unidades": 9
+        },
+        {
+          "nombre": "Empresa e Inciativa Emprendedora",
+          "horas": 50,
+          "unidades": 10
+        }
+      ]
     }
   ],
   "listaModulos": [
